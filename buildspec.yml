@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "us-east-1"
-    REPOSITORY_URI: "646672863546.dkr.ecr.us-east-1.amazonaws.com/inventory2"
+    REPOSITORY_URI: "358133388983.dkr.ecr.us-east-1.amazonaws.com/inventory2"
     CONTAINER_NAME: "app"   # must match ECS task definition container name
 
 phases:
@@ -11,7 +11,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 646672863546.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 358133388983.dkr.ecr.us-east-1.amazonaws.com
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Repo URI: $REPOSITORY_URI
       - echo Image tag: $IMAGE_TAG
